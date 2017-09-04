@@ -4,7 +4,7 @@
 # 云监工原作者powergx
 
 FROM tutum/ubuntu:trusty
-MAINTAINER lingang <lingang@live.cn>
+MAINTAINER wsw <xyz9836@126.com>
 
 RUN rm /bin/sh &&  ln -s /bin/bash /bin/sh
 
@@ -19,11 +19,8 @@ RUN mkdir /app
 WORKDIR /app
 
 #下载云监工源代码
-RUN git clone https://github.com/xyz9836/723-1.git
+RUN git clone https://github.com/xyz9836/wsw_bao.git
 
-#https://github.com/ajun59420/crysadm.git
-
-#https://github.com/linqgang/crysadm.git
 
 #Redis数据库保存目录
 VOLUME ["/var/lib/redis"]
@@ -37,12 +34,12 @@ RUN pip3.4 install redis && pip3.4 install requests && pip3.4 install flask
 #复制配置文件
 RUN mv /etc/nginx/sites-available/default ./
 COPY default /etc/nginx/sites-available/
-#COPY /723-1/run.sh ./
+#COPY /app/wsw_bao/run.sh ./
 RUN apt-get clean
 
 #脚本加运行权限
 #RUN chmod +x ./run.sh
-RUN chmod +x ./723-1/run.sh ./723-1/down.sh ./723-1/setup.sh  ./723-1/cron.sh
+RUN chmod +x ./wsw_bao/run.sh ./wsw_bao/down.sh ./wsw_bao/setup.sh  ./wsw_bao/cron.sh
 
 #设置容器端口
 #云监工端口
@@ -54,7 +51,7 @@ EXPOSE 80
 
 RUN chmod +w /set_root_pw.sh
 #添加运行脚本
-RUN echo "/app/723-1/run.sh" >>/set_root_pw.sh
+RUN echo "/app/wsw_bao/run.sh" >>/set_root_pw.sh
 RUN echo "service nginx start" >>/set_root_pw.sh
 RUN echo "service nginx reload" >>/set_root_pw.sh
 RUN echo "/bin/bash" >>/set_root_pw.sh
