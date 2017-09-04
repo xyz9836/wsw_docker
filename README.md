@@ -13,6 +13,9 @@ by:wsw
 
 外接卷路径`/var/lib/redis`，就是redis数据库存放目录  
 
+#Redis数据库保存目录
+VOLUME ["/var/lib/wsw"]
+
 容器端口云监工端口4000 SSH端口22，可以SSH到容器，root密码在日志查找  
 
 此云监工源代码提取自 https://github.com/xyz9836/wsw_bao.git 
