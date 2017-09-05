@@ -23,7 +23,7 @@ RUN git clone https://github.com/xyz9836/wsw_bao.git
 
 
 #Redis数据库保存目录
-VOLUME ["/var/lib/wsw"]
+VOLUME ["/var/lib/redis"]
 
 #安装python，redis
 RUN apt-get install -y python3.4 python3.4-dev redis-server
