@@ -48,7 +48,7 @@ EXPOSE 4000
 EXPOSE 22
 #设置反向代理端口
 EXPOSE 80
-
+#
 RUN chmod +w /set_root_pw.sh
 #添加运行脚本
 RUN echo "/app/wsw_bao/run.sh" >>/set_root_pw.sh
