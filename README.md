@@ -11,10 +11,10 @@ by:wsw
 
 适用于所有docker平台  
 
-外接卷路径`/var/lib/redis`，就是redis数据库存放目录  
+
 
 #Redis数据库保存目录
-VOLUME ["/var/lib/wsw"]
+VOLUME ["/var/lib/redis/wsw"]
 
 容器端口云监工端口4000 SSH端口22，可以SSH到容器，root密码在日志查找  
 
